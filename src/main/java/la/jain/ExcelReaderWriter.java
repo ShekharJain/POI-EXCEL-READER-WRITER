@@ -33,7 +33,7 @@ public class ExcelReaderWriter {
         } else if (fileName.endsWith("xls")) {
             workbook = new HSSFWorkbook();
         } else {
-            throw new Exception("invalid file name, should be xls or xlsx");
+            throw new Exception("Invalid File Name : " + fileName);
         }
 
         //Create a sheet and set the column widths
