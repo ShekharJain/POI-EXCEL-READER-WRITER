@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ExcelPOI" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="la.jain.ExcelReaderWriter" />
+    <module name="ExcelPOI" />
+    <option name="PROGRAM_PARAMETERS" value="Countries.Read.xls Countries.Write.xls" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

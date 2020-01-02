@@ -1,5 +1,14 @@
 package la.jain;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -9,17 +18,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 public class ExcelReaderWriter {
 
-    static final int NAMECOLUMN = 2;
-    static final int CODECOLUMN = 1;
     static final int COUNTCOLUMN = 0;
+    static final int CODECOLUMN = 1;
+    static final int NAMECOLUMN = 2;
     static final int CAPITALCOLUMN = 3;
 
     protected static final Logger log = LogManager.getLogger();
