@@ -18,6 +18,8 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ExcelReaderWriter {
 
@@ -61,9 +63,9 @@ public class ExcelReaderWriter {
         fos.close();
     }
 
-    public static List<Country> readExcelData(String fileName) throws FileNotFoundException, IOException {
+    public static List<Country> readExcelData(String fileName) throws IOException {
         MessageFormat sheetMessageFormat = new MessageFormat("Processed Sheet {2} Name:{0} Rows:{1}");
-        final List<Country> countries = new ArrayList<Country>();
+        final List<Country> countries = new ArrayList<>();
         int sheetNumber = 0;
 
         FileInputStream fis = new FileInputStream(fileName);

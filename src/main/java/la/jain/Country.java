@@ -33,7 +33,7 @@ public class Country implements Comparable<Country> {
     }
 
     public int compareTo(Country country) {
-        return this.getShortCode().compareTo(country.getShortCode());
+        return this.getShortCode().compareTo(country.getShortCode())*-1;
     }
 
     @Override
