@@ -108,7 +108,7 @@ public class ExcelReaderWriter {
             List<Country> countryList = ExcelReaderWriter.readExcelData(args[0]);
             if (countryList.size() > 0) {
                 Collections.sort(countryList);
-                log.info("Sorted Country List " + countryList.toString());
+                countryList.forEach((country) -> log.info(country.toString()));
                 ExcelReaderWriter.writeCountryListToFile(args[1], countryList);
                 log.info(MessageFormat.format("Wrote Excel File : {1} : {0} records", countryList.size(), args[1]));
             }
