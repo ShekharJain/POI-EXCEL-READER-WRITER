@@ -1,0 +1,24 @@
+2020-01-02T13:58:23,582 [main] I ExcelReaderWriter:100 - Processed Sheet 1 Name:Asia Rows:8
+2020-01-02T13:58:23,587 [main] I ExcelReaderWriter:100 - Processed Sheet 2 Name:Americas Rows:9
+2020-01-02T13:58:23,588 [main] I ExcelReaderWriter:100 - Processed Sheet 3 Name:Africa Rows:3
+2020-01-02T13:58:23,611 [main] I ExcelReaderWriter:111 - ZIM::Zimbabwe::Harare
+2020-01-02T13:58:23,612 [main] I ExcelReaderWriter:111 - USA::United States::Washington D.C.
+2020-01-02T13:58:23,612 [main] I ExcelReaderWriter:111 - THA::Thailand::Bangkok
+2020-01-02T13:58:23,613 [main] I ExcelReaderWriter:111 - RUS::Russia::Moscow
+2020-01-02T13:58:23,613 [main] I ExcelReaderWriter:111 - NIC::Nicaragua::Managua
+2020-01-02T13:58:23,613 [main] I ExcelReaderWriter:111 - MEX::Mexico::Mexico City
+2020-01-02T13:58:23,614 [main] I ExcelReaderWriter:111 - MAY::Malaysia::Kuala Lumpur
+2020-01-02T13:58:23,614 [main] I ExcelReaderWriter:111 - LIB::Libya::Tripoli
+2020-01-02T13:58:23,614 [main] I ExcelReaderWriter:111 - JPN::Japan::Tokyo
+2020-01-02T13:58:23,615 [main] I ExcelReaderWriter:111 - ISA::Indonesia::Jakarta
+2020-01-02T13:58:23,615 [main] I ExcelReaderWriter:111 - IND::India::New Delhi
+2020-01-02T13:58:23,615 [main] I ExcelReaderWriter:111 - GUA::Guatemala::Guatemala City
+2020-01-02T13:58:23,616 [main] I ExcelReaderWriter:111 - ETH::Ethiopia::Addis Ababa
+2020-01-02T13:58:23,616 [main] I ExcelReaderWriter:111 - EGY::Egypt::Cairo
+2020-01-02T13:58:23,617 [main] I ExcelReaderWriter:111 - CRA::Costa Rica::San Jose
+2020-01-02T13:58:23,617 [main] I ExcelReaderWriter:111 - COL::Colombia::Bogota
+2020-01-02T13:58:23,617 [main] I ExcelReaderWriter:111 - COL::Colombia::Bogota
+2020-01-02T13:58:23,618 [main] I ExcelReaderWriter:111 - BRA::Brazil::Rio De Janeiro
+2020-01-02T13:58:23,618 [main] I ExcelReaderWriter:111 - ARG::Argentina::Buenos Aires
+2020-01-02T13:58:23,619 [main] I ExcelReaderWriter:111 - AFG::Afghanistan::Kabul
+2020-01-02T13:58:23,680 [main] I ExcelReaderWriter:113 - Wrote Excel File : Countries.Write.xls : 20 records
