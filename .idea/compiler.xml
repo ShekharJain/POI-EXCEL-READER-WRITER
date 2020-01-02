@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ExcelPOI" />
+        <module name="POI-EXCEL-READER-WRITER" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="ExcelPOI" target="11" />
+    <bytecodeTargetLevel target="11">
+      <module name="POI-EXCEL-READER-WRITER" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
