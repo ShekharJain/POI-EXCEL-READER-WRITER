@@ -1,5 +1,6 @@
 package la.jain;
 
+import la.jain.Exception.IncorrectFileExtensionException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -27,7 +28,7 @@ public class ExcelReaderWriter {
 
     protected static final Logger log = LogManager.getLogger();
 
-    public static void writeCountryListToFile(String fileName, List<Country> countryList) throws Exception{
+    public static void writeCountryListToFile(String fileName, List<Country> countryList) throws IncorrectFileExtensionException, IOException{
         final Workbook workbook;
         int rowIndex;
 
@@ -36,7 +37,7 @@ public class ExcelReaderWriter {
         } else if (fileName.endsWith("xls")) {
             workbook = new HSSFWorkbook();
         } else {
-            throw new Exception("Invalid File Name : " + fileName);
+            throw new IncorrectFileExtensionException("Invalid Write To File Name : " + fileName);
         }
 
         //Create a sheet and set the column widths
@@ -94,7 +95,7 @@ public class ExcelReaderWriter {
                 }
                 countries.add(c);
             }
-            log.error(sheetMessageFormat.format(new Object[]{sheet.getSheetName(), sheet.getLastRowNum()+1, sheetNumber}));
+            log.info(sheetMessageFormat.format(new Object[]{sheet.getSheetName(), sheet.getLastRowNum()+1, sheetNumber}));
         }
         fis.close();
         return countries;
@@ -105,12 +106,16 @@ public class ExcelReaderWriter {
             List<Country> countryList = ExcelReaderWriter.readExcelData(args[0]);
             if (countryList.size() > 0) {
                 Collections.sort(countryList);
-                log.error(countryList.toString());
+                log.info("Sorted Country List " + countryList.toString());
                 ExcelReaderWriter.writeCountryListToFile(args[1], countryList);
-                log.error(MessageFormat.format("Wrote Excel File : {1} : {0} records", countryList.size(), args[1]));
+                log.info(MessageFormat.format("Wrote Excel File : {1} : {0} records", countryList.size(), args[1]));
             }
         } catch (FileNotFoundException e) {
             log.error(MessageFormat.format("Input File {0} Not Found", args[0]));
+        } catch (IndexOutOfBoundsException i) {
+            log.error("Required arguments not passed");
+        } catch (IncorrectFileExtensionException ext) {
+            log.error(ext.getLocalizedMessage());
         }
     }
 }
