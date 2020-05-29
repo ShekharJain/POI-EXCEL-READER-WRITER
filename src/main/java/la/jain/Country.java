@@ -52,5 +52,6 @@ public class Country implements Comparable<Country> {
     public String toString(){
         return ReflectionToStringBuilder.toString(this);
         //return this.getShortCode() + "::" + this.getName() + "::" + this.getCapital();
+        //return "Test";
     }
 }
