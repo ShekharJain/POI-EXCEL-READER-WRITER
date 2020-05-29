@@ -106,6 +106,11 @@ public class ExcelReaderWriter {
         return countries;
     }
 
+    /**
+     *
+     * @param args 0-Name of Excel file to read 1-Name of Excel file to write
+     * @throws Exception
+     */
     public static void main(String args[]) throws Exception {
         try {
             List<Country> countryList = ExcelReaderWriter.readExcelData(args[0]);
