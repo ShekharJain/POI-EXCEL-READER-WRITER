@@ -1,5 +1,9 @@
 package la.jain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
 public class Country implements Comparable<Country> {
     private String name;
     private String shortCode;
@@ -12,12 +16,15 @@ public class Country implements Comparable<Country> {
 
     public Country() {}
 
+    @JsonProperty("countryName")
     public String getName() {
         return name;
     }
     public void setName(String name) {
         this.name = name;
     }
+
+    @JsonProperty("countryCode")
     public String getShortCode() {
         return shortCode;
     }
@@ -25,6 +32,7 @@ public class Country implements Comparable<Country> {
         this.shortCode = shortCode;
     }
 
+    @JsonIgnore
     public String getCapital() {
         return capital;
     }
@@ -38,6 +46,7 @@ public class Country implements Comparable<Country> {
 
     @Override
     public String toString(){
-        return this.getShortCode() + "::" + this.getName() + "::" + this.getCapital();
+        return ReflectionToStringBuilder.toString(this);
+        //return this.getShortCode() + "::" + this.getName() + "::" + this.getCapital();
     }
 }
