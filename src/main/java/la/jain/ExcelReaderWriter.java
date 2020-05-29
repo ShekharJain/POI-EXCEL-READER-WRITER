@@ -27,6 +27,7 @@ public class ExcelReaderWriter {
     static final int CODECOLUMN = 1;
     static final int NAMECOLUMN = 2;
     static final int CAPITALCOLUMN = 3;
+    static final int CONTINENTCOLUMN = 4;
 
     protected static final Logger log = LogManager.getLogger();
 
@@ -48,6 +49,7 @@ public class ExcelReaderWriter {
         sheet.setColumnWidth(CODECOLUMN,256*10);
         sheet.setColumnWidth(NAMECOLUMN, 256*30);
         sheet.setColumnWidth(CAPITALCOLUMN, 256*30);
+        sheet.setColumnWidth(CONTINENTCOLUMN, 256*15);
 
         rowIndex = 0;
         for (Country country : countryList) {
@@ -56,6 +58,7 @@ public class ExcelReaderWriter {
             row.createCell(NAMECOLUMN).setCellValue(country.getName());
             row.createCell(CODECOLUMN).setCellValue(country.getShortCode());
             row.createCell(CAPITALCOLUMN).setCellValue(country.getCapital());
+            row.createCell(CONTINENTCOLUMN).setCellValue(country.getContinent());
         }
 
         FileOutputStream fos = new FileOutputStream(fileName);
@@ -79,7 +82,7 @@ public class ExcelReaderWriter {
         for (Sheet sheet:workbook) {
             sheetNumber++;
             for (Row row : sheet) {
-                Country c = new Country();
+                Country c = new Country(sheet.getSheetName());
                 for (Cell cell : row) {
                     switch (cell.getColumnIndex()) {
                         case CODECOLUMN:

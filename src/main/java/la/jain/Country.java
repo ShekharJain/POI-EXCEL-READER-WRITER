@@ -8,13 +8,11 @@ public class Country implements Comparable<Country> {
     private String name;
     private String shortCode;
     private String capital;
+    private String continent;
 
-    public Country(String name, String code){
-        this.name=name;
-        this.shortCode=code;
+    public Country(String continent){
+        this.continent=continent;
     }
-
-    public Country() {}
 
     @JsonProperty("countryName")
     public String getName() {
@@ -28,9 +26,7 @@ public class Country implements Comparable<Country> {
     public String getShortCode() {
         return shortCode;
     }
-    public void setShortCode(String shortCode) {
-        this.shortCode = shortCode;
-    }
+    public void setShortCode(String shortCode) { this.shortCode = shortCode; }
 
     @JsonIgnore
     public String getCapital() {
@@ -38,6 +34,14 @@ public class Country implements Comparable<Country> {
     }
     public void setCapital(String capital) {
         this.capital = capital;
+    }
+
+    @JsonProperty("continent")
+    public String getContinent() {
+        return continent;
+    }
+    public void setContinent(String continent) {
+        this.capital = continent;
     }
 
     public int compareTo(Country country) {
