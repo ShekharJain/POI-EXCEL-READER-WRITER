@@ -18,20 +18,18 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class ExcelReaderWriter {
 
-    static final int COUNTCOLUMN = 0;
-    static final int CODECOLUMN = 1;
-    static final int NAMECOLUMN = 2;
-    static final int CAPITALCOLUMN = 3;
-    static final int CONTINENTCOLUMN = 4;
+    private static final int COUNTCOLUMN = 0;
+    private static final int CODECOLUMN = 1;
+    private static final int NAMECOLUMN = 2;
+    private static final int CAPITALCOLUMN = 3;
+    private static final int CONTINENTCOLUMN = 4;
 
-    protected static final Logger log = LogManager.getLogger();
+    private static final Logger log = LogManager.getLogger();
 
-    public static void writeCountryListToFile(String fileName, List<Country> countryList) throws IncorrectFileExtensionException, IOException{
+    private static void writeCountryListToFile(String fileName, List<Country> countryList) throws IncorrectFileExtensionException, IOException{
         final Workbook workbook;
         int rowIndex;
 
@@ -66,7 +64,7 @@ public class ExcelReaderWriter {
         fos.close();
     }
 
-    public static List<Country> readExcelData(String fileName) throws IOException {
+    private static List<Country> readExcelData(String fileName) throws IOException {
         MessageFormat sheetMessageFormat = new MessageFormat("Processed Sheet {2} Name:{0} Rows:{1}");
         final List<Country> countries = new ArrayList<>();
         int sheetNumber = 0;
@@ -109,7 +107,7 @@ public class ExcelReaderWriter {
     /**
      *
      * @param args 0-Name of Excel file to read 1-Name of Excel file to write
-     * @throws Exception
+     * @throws Exception Run time exception
      */
     public static void main(String args[]) throws Exception {
         try {
