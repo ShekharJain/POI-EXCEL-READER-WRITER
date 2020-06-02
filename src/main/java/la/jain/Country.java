@@ -44,8 +44,10 @@ public class Country implements Comparable<Country> {
         this.capital = continent;
     }
 
+    protected String getHierarchy () {return getContinent() + getShortCode();}
+
     public int compareTo(Country country) {
-        return this.getShortCode().compareTo(country.getShortCode())*-1;
+        return this.getHierarchy().compareTo(country.getHierarchy());
     }
 
     @Override
