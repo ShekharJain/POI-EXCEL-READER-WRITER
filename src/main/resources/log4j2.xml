@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN">
+<Configuration monitorInterval="60">
+    <Properties>
+        <Property name="log-path"></Property>
+        <Property name="archive">${log-path}/archive</Property>
+    </Properties>
+
     <Appenders>
         <Console name="LogToConsole" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{ISO8601} [%t] %level{length=1} %c{1}:%L - %msg%n"/>
         </Console>
+        <File name="FileAppender" fileName="log.log" >
+            <PatternLayout>
+                <pattern>
+                    [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+                </pattern>
+            </PatternLayout>
+        </File>
     </Appenders>
     <Loggers>
-        <Logger name="la" level="debug" additivity="false">
-            <AppenderRef ref="LogToConsole"/>
+        <Logger name="la" level="debug" additivity="true">
+            <AppenderRef ref="FileAppender"/>
         </Logger>
-        <Root level="warn">
+        <Root level="info">
             <AppenderRef ref="LogToConsole"/>
         </Root>
     </Loggers>
