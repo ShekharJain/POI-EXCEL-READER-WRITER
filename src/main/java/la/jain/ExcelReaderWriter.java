@@ -8,7 +8,6 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -25,24 +24,13 @@ public class ExcelReaderWriter {
     private static final int CODECOLUMN = 1;
     private static final int NAMECOLUMN = 2;
     private static final int CAPITALCOLUMN = 3;
-<<<<<<< HEAD
-=======
     private static final int CONTINENTCOLUMN = 4;
->>>>>>> 7b742badf979dcc767dc471717bb735ef31fbd20
 
     private static final Logger log = LogManager.getLogger();
 
     private static void writeCountryListToFile(String fileName, List<Country> countryList) throws IncorrectFileExtensionException, IOException{
-        final Workbook workbook;
+        final Workbook workbook = new HSSFWorkbook();
         int rowIndex;
-
-        if (fileName.endsWith("xlsx")) {
-            workbook = new XSSFWorkbook();
-        } else if (fileName.endsWith("xls")) {
-            workbook = new HSSFWorkbook();
-        } else {
-            throw new IncorrectFileExtensionException("Invalid Write To File Name : " + fileName);
-        }
 
         //Create a sheet and set the column widths
         Sheet sheet = workbook.createSheet("Countries");
@@ -73,12 +61,8 @@ public class ExcelReaderWriter {
         int sheetNumber = 0;
 
         FileInputStream fis = new FileInputStream(fileName);
-        Workbook workbook = null;
-        if (fileName.toLowerCase().endsWith("xlsx")) {
-            workbook = new XSSFWorkbook(fis);
-        } else if (fileName.toLowerCase().endsWith("xls")) {
-            workbook = new HSSFWorkbook(fis);
-        }
+        Workbook workbook = new HSSFWorkbook(fis);
+
         //loop through each of the sheets
         for (Sheet sheet:workbook) {
             sheetNumber++;
