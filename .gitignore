@@ -1,2 +1,5 @@
-/log.log
-/POI-EXCEL-READER-WRITER.iml
+*.log
+*.xls
+target/
+.idea/
+*.iml

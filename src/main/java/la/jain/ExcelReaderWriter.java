@@ -25,6 +25,10 @@ public class ExcelReaderWriter {
     private static final int CODECOLUMN = 1;
     private static final int NAMECOLUMN = 2;
     private static final int CAPITALCOLUMN = 3;
+<<<<<<< HEAD
+=======
+    private static final int CONTINENTCOLUMN = 4;
+>>>>>>> 7b742badf979dcc767dc471717bb735ef31fbd20
 
     private static final Logger log = LogManager.getLogger();
 
@@ -46,6 +50,7 @@ public class ExcelReaderWriter {
         sheet.setColumnWidth(CODECOLUMN,256*10);
         sheet.setColumnWidth(NAMECOLUMN, 256*30);
         sheet.setColumnWidth(CAPITALCOLUMN, 256*30);
+        sheet.setColumnWidth(CONTINENTCOLUMN, 256*15);
 
         rowIndex = 0;
         for (Country country : countryList) {
@@ -54,6 +59,7 @@ public class ExcelReaderWriter {
             row.createCell(NAMECOLUMN).setCellValue(country.getName());
             row.createCell(CODECOLUMN).setCellValue(country.getShortCode());
             row.createCell(CAPITALCOLUMN).setCellValue(country.getCapital());
+            row.createCell(CONTINENTCOLUMN).setCellValue(country.getContinent());
         }
 
         FileOutputStream fos = new FileOutputStream(fileName);
@@ -77,7 +83,7 @@ public class ExcelReaderWriter {
         for (Sheet sheet:workbook) {
             sheetNumber++;
             for (Row row : sheet) {
-                Country c = new Country();
+                Country c = new Country(sheet.getSheetName());
                 for (Cell cell : row) {
                     switch (cell.getColumnIndex()) {
                         case CODECOLUMN:
@@ -101,6 +107,11 @@ public class ExcelReaderWriter {
         return countries;
     }
 
+    /**
+     *
+     * @param args 0-Name of Excel file to read 1-Name of Excel file to write
+     * @throws Exception Run time exception
+     */
     public static void main(String args[]) throws Exception {
         try {
             List<Country> countryList = ExcelReaderWriter.readExcelData(args[0]);
